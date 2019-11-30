@@ -1,0 +1,71 @@
+{
+    "identityPoolName": "rncognito7020ac39_identitypool_7020ac39",
+    "allowUnauthenticatedIdentities": true,
+    "lambdaLogPolicy": "rncogn_7020ac39_lambda_log_policy",
+    "openIdLambdaRoleName": "rncogn_7020ac39_openid_lambda_role",
+    "openIdRolePolicy": "rncogn_7020ac39_openid_pass_role_policy",
+    "openIdLambdaIAMPolicy": "rncogn_7020ac39_openid_lambda_iam_policy",
+    "openIdLogPolicy": "rncogn_7020ac39_openid_lambda_log_policy",
+    "userPoolName": "rncognito7020ac39_userpool_7020ac39",
+    "autoVerifiedAttributes": [
+        "email"
+    ],
+    "mfaConfiguration": "OFF",
+    "mfaTypes": [
+        "SMS Text Message"
+    ],
+    "roleName": "rncogn7020ac39_sns-role",
+    "roleExternalId": "rncogn7020ac39_role_external_id",
+    "policyName": "rncogn7020ac39-sns-policy",
+    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Your verification code",
+    "emailVerificationMessage": "Your verification code is {####}",
+    "defaultPasswordPolicy": false,
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [],
+    "requiredAttributes": [
+        "email"
+    ],
+    "userpoolClientName": "rncogn7020ac39_app_client",
+    "userpoolClientGenerateSecret": true,
+    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientWriteAttributes": [
+        "email"
+    ],
+    "userpoolClientReadAttributes": [
+        "email"
+    ],
+    "mfaLambdaRole": "rncogn7020ac39_totp_lambda_role",
+    "mfaLambdaLogPolicy": "rncogn7020ac39_totp_lambda_log_policy",
+    "mfaPassRolePolicy": "rncogn7020ac39_totp_pass_role_policy",
+    "mfaLambdaIAMPolicy": "rncogn7020ac39_totp_lambda_iam_policy",
+    "userpoolClientLambdaRole": "rncogn7020ac39_userpoolclient_lambda_role",
+    "userpoolClientLogPolicy": "rncogn7020ac39_userpoolclient_lambda_log_policy",
+    "userpoolClientLambdaPolicy": "rncogn7020ac39_userpoolclient_lambda_iam_policy",
+    "userpoolClientSetAttributes": false,
+    "resourceName": "rncognito7020ac39",
+    "authSelections": "identityPoolAndUserPool",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    },
+    "unauthRoleArn": {
+        "Fn::GetAtt": [
+            "UnauthRole",
+            "Arn"
+        ]
+    },
+    "useDefault": "default",
+    "usernameAttributes": [
+        "email"
+    ]
+}

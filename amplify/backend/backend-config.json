@@ -1,0 +1,14 @@
+{
+	"auth": {
+		"rncognito7020ac39": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation"
+		}
+	},
+	"analytics": {
+		"RNCognito": {
+			"service": "Pinpoint",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}

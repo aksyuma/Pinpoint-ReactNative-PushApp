@@ -1,0 +1,20 @@
+{
+    "appName": "RNCognito",
+    "roleName": "pinpointLambdaRole6dcf3375",
+    "cloudWatchPolicyName": "cloudWatchPolicy6dcf3375",
+    "pinpointPolicyName": "pinpointPolicy6dcf3375",
+    "authPolicyName": "pinpoint_amplify_6dcf3375",
+    "unauthPolicyName": "pinpoint_amplify_6dcf3375",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}
