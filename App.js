@@ -27,7 +27,37 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import Amplify, { Auth, Analytics } from 'aws-amplify'
+import PushNotification from '@aws-amplify/pushnotification'
+import aws_exports from './aws-exports'
+
+window.LOG_LEVEL = 'DEBUG';
+
+Amplify.configure(aws_exports);
+PushNotification.configure(aws_exports);
+console.log('Amplify configured');
+
 export default class App extends React.Component {
+
+  componentDidMount(){
+
+    // get the notification data
+    PushNotification.onNotification((notification) => {
+      // Note that the notification object structure is different from Android and IOS
+      console.log('Notification token', notification);
+
+      // required on iOS only (see fetchCompletionHandler docs: https://facebook.github.io/react-native/docs/pushnotificationios.html)
+      notification.finish(PushNotificationIOS.FetchResult.NoData);
+    });
+
+    // get the registration token
+    PushNotification.onRegister((token) => {
+      console.log('FCM', token);
+    });
+
+
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -43,10 +73,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
   },
 });

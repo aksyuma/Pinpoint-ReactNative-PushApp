@@ -178,10 +178,15 @@ android {
 }
 
 dependencies {
+    implementation project(':@aws-amplify_pushnotification')
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "com.facebook.react:react-native:+"  // From node_modules
+
+    // FCM modules
+    implementation "com.google.firebase:firebase-core:12.0.1"
+    implementation "com.google.firebase:firebase-messaging:15.0.2"
 
     if (enableHermes) {
     def hermesPath = "../../node_modules/hermes-engine/android/";
@@ -200,3 +205,8 @@ task copyDownloadableDepsToLibs(type: Copy) {
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle")
+
+// Add to the bottom of the file
+apply plugin: 'com.google.gms.google-services'; applyNativeModulesAppBuildGradle(project)
+
+
