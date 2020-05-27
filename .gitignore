@@ -26,12 +26,17 @@ project.xcworkspace
 #
 build/
 .idea
-.gradle
 local.properties
+.gradle
 *.iml
+
+# FCM
+#
+google-services.json
 
 # node.js
 #
+
 node_modules/
 npm-debug.log
 yarn-error.log
@@ -63,6 +68,7 @@ amplify/backend/awscloudformation
 build/
 dist/
 node_modules/
+team-provider-info.json
 aws-exports.js
 awsconfiguration.json
 node_modules
